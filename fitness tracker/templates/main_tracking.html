@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+    </header>
+    <div class="container">
+        <section class="log-workout">
+            <h2>Log Workout</h2>
+            <form method="POST">
+                <label for="exercise">Exercise:</label>
+                <select id="exercise" name="exercise" required>
+                    <option value="" disabled selected>Select Exercise</option>
+                    <option value="Running">Running</option>
+                    <option value="Cycling">Cycling</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Walking">Walking</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Weightlifting">Weightlifting</option>
+                    <option value="Jumping Jacks">Jumping Jacks</option>
+                    <option value="Push Ups">Push Ups</option>
+                    <option value="Squats">Squats</option>
+                    <option value="Plank">Plank</option>
+                    <option value="Lunges">Lunges</option>
+                    <option value="Burpees">Burpees</option>
+                    <option value="Mountain Climbers">Mountain Climbers</option>
+
+
+
+                </select>
+                <label for="duration">Duration (minutes):</label>
+                <input type="number" id="duration" name="duration" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit">Log Workout</button>
+            </form>
+        </section>
+
+        <section class="progress">
+            <h2>Progress</h2>
+            <div>
+                <p>Total Workouts: {{ total_workouts }}</p>
+                <p>Total Duration: {{ total_duration }} minutes</p>
+                <p>Total Calories Burned: {{ total_calories }} kcal</p>
+            </div>
+        </section>
+
+        <section class="statistics">
+            <h2>Statistics</h2>
+            <div>
+                <p>Average Duration: {{ avg_duration }} minutes</p>
+                <p>Average Calories Burned: {{ avg_calories }} kcal</p>
+                <h3>Logged Exercises</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Exercise</th>
+                            <th>Duration (minutes)</th>
+                            <th>Calories Burned</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for workout in workouts %}
+                        <tr>
+                            <td>{{ workout.date }}</td>
+                            <td>{{ workout.exercise }}</td>
+                            <td>{{ workout.duration }}</td>
+                            <td>{{ workout.calories_burned }}</td>
+                            <td>
+                                <form action="{{ url_for('delete_workout', workout_index=loop.index0) }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <section class="diet-plan">
+            <a href="{{ url_for('diet_plan') }}" class="diet-plan-button">View Diet Plan</a>
+        </section>
+    </div>
+</body>
+</html>
