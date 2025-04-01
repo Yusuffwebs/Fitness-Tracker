@@ -1,4 +1,3 @@
-
 body, html {
   margin: 0;
   background-image: url('background.jpg');
@@ -6,12 +5,12 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #fff;
   padding: 0;
   font-family: 'Arial', sans-serif;
   height: 100%;
   width: 100%;
-  color: #fff;
 }
 
 body::before {
@@ -30,6 +29,7 @@ header {
   padding: 50px 0;
   background: rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
+  color: #fff;
 }
 
 header h1 {
@@ -47,12 +47,13 @@ header h1 {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  text-align: center; /* Centered content */
+  text-align: center;
+  color: #fff;
 }
-
 
 section {
   margin-bottom: 20px;
+  color: #fff;
 }
 
 section h2 {
@@ -61,11 +62,11 @@ section h2 {
   margin-bottom: 20px;
 }
 
-
 form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #fff;
 }
 
 form input, form select, form button {
@@ -91,25 +92,26 @@ form button:hover {
   background: #e67e22;
 }
 
-
 .progress div, .statistics div {
   padding: 15px;
   border: 1px solid #555;
   border-radius: 5px;
   margin-bottom: 10px;
+  color: #fff;
 }
-
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  color: #fff;
 }
 
 th, td {
   padding: 10px 12px;
   text-align: left;
   border-bottom: 1px solid #555;
+  color: #fff;
 }
 
 th {
@@ -117,53 +119,13 @@ th {
   color: #000;
 }
 
-
-.button {
+/* Standardized button styles */
+.button,
+.diet-plan-button,
+#toggle-log {
   width: 30%;
-  padding: 10px 18px; /
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-  text-align: center;
-  display: block;
-  margin: 15px auto;
-  text-decoration: none;
-}
-
-.button:hover {
-  background-color: #27ae60;
-}
-
-#clear-log {
-  width: 90%;
-  background: #ff4d4d;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 8px;
-}
-
-#clear-log:hover {
-  background: #cc0000;
-}
-
-
-#exercise-log {
-  display: none;
-  margin-top: 20px;
-}
-
-.diet-plan-button {
-  width: 25%;
   padding: 10px 18px;
-  background-color: #2ecc71;
+  background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -174,48 +136,46 @@ th {
   display: block;
   margin: 15px auto;
   text-decoration: none;
+}
+
+.button:hover,
+.diet-plan-button:hover,
+#toggle-log:hover {
+  background-color: #2980b9;
+}
+
+/* Special buttons */
+.diet-plan-button {
+  background-color: #2ecc71;
+  width: 25%;
 }
 
 .diet-plan-button:hover {
   background-color: #27ae60;
 }
 
-.delete-button {
-  width: 80%;
-  padding: 10px 18px;
+.delete-button,
+#clear-log {
   background-color: #ff4d4d;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-  text-align: center;
-  display: block;
-  margin: 15px auto;
 }
 
-.delete-button:hover {
+.delete-button {
+  width: 80%;
+}
+
+#clear-log {
+  width: 90%;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+
+.delete-button:hover,
+#clear-log:hover {
   background-color: #cc0000;
 }
 
-
-
-#toggle-log {
-  width: 90%;
-  background: #3498db;
-  color: #fff;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  text-align: center;
-  transition: background-color 0.3s;
-  display: block;
-  margin: 15px auto;
-}
-
-#toggle-log:hover {
-  background: #2980b9;
+#exercise-log {
+  display: none;
+  margin-top: 20px;
 }
